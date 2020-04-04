@@ -12,9 +12,9 @@
     "sourceType": "module"
   },
   "extends": ["airbnb", "plugin:react/recommended"],
+  "parser": "babel-eslint",
   "plugins": ["react"],
   "rules": {
-    "react/prop-types": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",
     "no-shadow": "off",
