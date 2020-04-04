@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker';
 
 // gaearon, sophiebits, sebmarkbage, bvaughn
 const testData = [
-  {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
-  {name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-  {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
+  {name: 'Dan Abramov', avatar_url: 'https://avatars0.githubusercontent.com/u/810438?v=4', company: '@facebook'},
+  {name: 'Sophie Alpert', avatar_url: 'https://avatars2.githubusercontent.com/u/6820?v=4', company: 'Humu'},
+  {name: 'Sebastian Markbåge', avatar_url: 'https://avatars2.githubusercontent.com/u/63648?v=4', company: 'Facebook'},
 ];
 
 const CardList = (props) => (
@@ -63,7 +63,7 @@ class App extends React.Component {
   };
   addNewProfile = (profileData) => {
     this.setState(prevState => ({
-      profiles: [...prevState.profiles, profileData]
+      profiles: [...prevState.profiles, profileData],
     }));
   }; 
   render() {
@@ -81,7 +81,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App title="The GitHub Cards App" />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
