@@ -18,10 +18,10 @@ const CardList = (props) => (
 class Card extends React.Component {
   render() {
     const profile = this.props;
-    return (
-      <div className="github-profile">
-        <img src={profile.avatar_url} />
-        <div className="info">
+      return (
+        <div className="github-profile">
+          <img src={profile.avatar_url} />
+          <div className="info">
           <div className="name">{profile.name}</div>
           <div className="company">{profile.company}</div>
         </div>
@@ -31,34 +31,37 @@ class Card extends React.Component {
 }
 
 class Form extends React.Component {
+  state = { userName: ""};
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
   render() {
     return (
-      <form action="">
-        <input type="text" placeholder="GiHub username"/>
-        <button>Add card</button>
+      <form onSubmit={this.handleSubmit}>
+      <input 
+      type="text"
+      value={this.state.userName}
+      onChange={event => this.setState({ userName: event.target.value })}
+      placeholder = "Github Username"
+      required
+       />
+      <button>Add card</button>
       </form>
-    )
+    );
   }
 }
 
 class App extends React.Component {
-  // constructor(props) {
-    // super(props);
-    // this.state = {
-      // profiles: testData,
-    // };
-  // }
-
   state = {
     profiles: testData,
-  }
+  };
 
   render() {
     return (
       <div>
         <div className="header">{this.props.title}</div>
         <Form />
-        <CardList profiles={this.state.profiles}/>
+        <CardList profiles={this.state.profiles} />
       </div>
     );
   } 
