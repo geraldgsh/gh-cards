@@ -9,34 +9,56 @@ const testData = [
   {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
 ];
 
-
 const CardList = (props) => (
   <div>
-    {testData.map(profile => <Card {...profile}/>)}
+    {props.profiles.map(profile => <Card {...profile}/>)}
   </div>
 );
 
 class Card extends React.Component {
   render() {
     const profile = this.props;
-      return (
-        <div className="github-profile">
-          <img src={profile.avatar_url} />
-          <div className="info">
-            <div className="name">{profile.name}</div>
-            <div className="company">{profile.company}</div>
+    return (
+      <div className="github-profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name">{profile.name}</div>
+          <div className="company">{profile.company}</div>
         </div>
       </div>
     );
   }
 }
 
+class Form extends React.Component {
+  render() {
+    return (
+      <form action="">
+        <input type="text" placeholder="GiHub username"/>
+        <button>Add card</button>
+      </form>
+    )
+  }
+}
+
 class App extends React.Component {
+  // constructor(props) {
+    // super(props);
+    // this.state = {
+      // profiles: testData,
+    // };
+  // }
+
+  state = {
+    profiles: testData,
+  }
+
   render() {
     return (
       <div>
         <div className="header">{this.props.title}</div>
-        <CardList />
+        <Form />
+        <CardList profiles={this.state.profiles}/>
       </div>
     );
   } 
